@@ -3,7 +3,10 @@
   <!-- Employee Name : {{name}} -->
 </h1>
 
-<h4 [id]="name" [hidden]="isHidden" [innerText]="name"></h4>
+<!-- <h4 [id]="name" [hidden]="isHidden" [innerText]="name"></h4> -->
+
+<h4 [id]="name" *ngIf="isHidden" [innerText]="name"></h4>
+
 
 <input [hidden]="isHidden" type="text" [value]="name" placeholder="Name"
  (change)="changeName($event)">
