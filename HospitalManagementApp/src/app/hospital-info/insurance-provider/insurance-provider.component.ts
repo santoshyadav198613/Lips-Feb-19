@@ -18,7 +18,7 @@ export class InsuranceProviderComponent implements OnInit {
   ngOnInit() {
   }
 
-  trackByFn(index, item){
+  trackByFn(index, item) {
     return index;
   }
 

@@ -3,16 +3,19 @@
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <div [ngSwitch]="role">
+  <app-doctors></app-doctors>
+  <!-- <div [ngSwitch]="role">
     <div *ngSwitchCase="'Employee'">
       <app-employee></app-employee>
     </div>
-    <div *ngSwitchCase="'Admin'">
+   <div *ngSwitchCase="'Admin'">
       <app-hospital-info></app-hospital-info>
     </div>
     <div *ngSwitchDefault>
       You are not assigned to any role.
     </div>
-  </div>
+  </div> -->
+  <app-employee></app-employee>
+  <app-hospital-info></app-hospital-info>
  
 </div>

@@ -11,7 +11,7 @@ export class HospitalInfoComponent implements OnInit {
     name : 'Test',
     address : 'Pune',
     specialization: 'Orthopadic'
-  }
+  };
 
   constructor() { }
 

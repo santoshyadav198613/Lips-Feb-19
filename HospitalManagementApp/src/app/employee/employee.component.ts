@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  name: string = 'Yash';
-  city: string = '';
-  isHidden: boolean = false;
+  name = 'Yash';
+  city = '';
+  isHidden = false;
 
   constructor() { }
   ngOnInit() {
@@ -21,7 +21,7 @@ export class EmployeeComponent implements OnInit {
   changeName(name: any) {
     // console.log(name.value);
     this.name = name.target.value;
-    this.city = "Pune";
+    this.city = 'Pune';
   }
 
   toggleInputs() {
