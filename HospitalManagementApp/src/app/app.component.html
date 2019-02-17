@@ -1,8 +1,18 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
+<div class="container">
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <app-employee></app-employee>
-  <app-hospital-info></app-hospital-info>
+  <div [ngSwitch]="role">
+    <div *ngSwitchCase="'Employee'">
+      <app-employee></app-employee>
+    </div>
+    <div *ngSwitchCase="'Admin'">
+      <app-hospital-info></app-hospital-info>
+    </div>
+    <div *ngSwitchDefault>
+      You are not assigned to any role.
+    </div>
+  </div>
+ 
 </div>
