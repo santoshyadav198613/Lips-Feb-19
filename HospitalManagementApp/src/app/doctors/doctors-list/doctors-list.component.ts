@@ -1,4 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component, OnInit, Input, SimpleChanges,
+  Output, OnChanges, EventEmitter
+} from '@angular/core';
 import { IDoctors } from '../doctors';
 
 @Component({
@@ -6,13 +9,17 @@ import { IDoctors } from '../doctors';
   templateUrl: './doctors-list.component.html',
   styleUrls: ['./doctors-list.component.css']
 })
-export class DoctorsListComponent implements OnInit {
+export class DoctorsListComponent implements OnInit, OnChanges {
 
   @Input() doctorsList: Array<IDoctors> = [];
   @Output() selectedDoctor = new EventEmitter<IDoctors>();
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
   }
 
   sendSelectedDoctor(doctor: IDoctors): void {
