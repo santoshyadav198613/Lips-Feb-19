@@ -5,3 +5,12 @@
 h4 {
    color: red; 
 }
+
+.app-employee h4 {
+    background-color: steelblue;
+    color: white;
+}
+
+.app-employee h1 {
+    color: white;
+}
