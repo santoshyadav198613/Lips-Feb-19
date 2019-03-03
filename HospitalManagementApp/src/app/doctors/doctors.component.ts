@@ -28,6 +28,9 @@ export class DoctorsComponent implements OnInit, DoCheck {
     this.docList = [...this.docList,
     { name: 'Test1', speciality: 'Surgeon', degree: 'MBBS', contactNo: '876764764', joinedOn: new Date('13-Nov-2010'), salary: 55000 }
     ];
+
+    // will modify the object will not work with CD onPush
+    // this.docList.push({ name: 'Test1', speciality: 'Surgeon', degree: 'MBBS', contactNo: '876764764', joinedOn: new Date('13-Nov-2010'), salary: 55000 });
   }
   ngDoCheck(): void {
     console.log('DO check is called');
