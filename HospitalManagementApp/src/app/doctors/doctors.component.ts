@@ -1,4 +1,5 @@
-import { Component, OnInit, DoCheck, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, DoCheck, ViewChild, 
+  AfterViewInit, ViewChildren, QueryList } from '@angular/core';
 
 import { HeaderComponent } from '../header/header.component';
 import { IDoctors } from './doctors';
@@ -10,6 +11,8 @@ import { IDoctors } from './doctors';
 export class DoctorsComponent implements OnInit, DoCheck, AfterViewInit {
 
   @ViewChild(HeaderComponent) headerComponent: HeaderComponent;
+  @ViewChildren(HeaderComponent) headerChildren: QueryList<HeaderComponent>;
+
   selectedDoctor: IDoctors;
   docList: Array<IDoctors> = [];
 
@@ -40,7 +43,12 @@ export class DoctorsComponent implements OnInit, DoCheck, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    console.log(this.headerChildren);
     setTimeout(() => this.headerComponent.header = "Selected Doctor", 0);
+    this.headerChildren.forEach((headerComp, i) => {
+      console.log(i);
+      setTimeout(() => headerComp.header = "Selected Doctor from children", 0);
+    });
   }
 
   receiveDoctor(doctor: IDoctors) {
