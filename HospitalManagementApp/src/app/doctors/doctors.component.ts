@@ -40,7 +40,7 @@ export class DoctorsComponent implements OnInit, DoCheck, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.headerComponent.header = "Selected Doctor";
+    setTimeout(() => this.headerComponent.header = "Selected Doctor", 0);
   }
 
   receiveDoctor(doctor: IDoctors) {
