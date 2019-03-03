@@ -7,6 +7,7 @@ import { HospitalInfoComponent } from './hospital-info/hospital-info.component';
 import { InsuranceProviderComponent } from './hospital-info/insurance-provider/insurance-provider.component';
 import { DoctorsComponent } from './doctors/doctors.component';
 import { DoctorsListComponent } from './doctors/doctors-list/doctors-list.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { DoctorsListComponent } from './doctors/doctors-list/doctors-list.compon
     HospitalInfoComponent,
     InsuranceProviderComponent,
     DoctorsComponent,
-    DoctorsListComponent
+    DoctorsListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule

@@ -1,13 +1,15 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, DoCheck, ViewChild, AfterViewInit } from '@angular/core';
 
+import { HeaderComponent } from '../header/header.component';
 import { IDoctors } from './doctors';
 @Component({
   selector: 'app-doctors',
   templateUrl: './doctors.component.html',
   styleUrls: ['./doctors.component.css']
 })
-export class DoctorsComponent implements OnInit, DoCheck {
+export class DoctorsComponent implements OnInit, DoCheck, AfterViewInit {
 
+  @ViewChild(HeaderComponent) headerComponent: HeaderComponent;
   selectedDoctor: IDoctors;
   docList: Array<IDoctors> = [];
 
@@ -22,6 +24,7 @@ export class DoctorsComponent implements OnInit, DoCheck {
       { name: 'Suresh', speciality: 'Surgeon', degree: 'MBBS', contactNo: '876764764', joinedOn: new Date('13-Nov-2011'), salary: 90000 },
       { name: 'Test', speciality: 'Surgeon', degree: 'MBBS', contactNo: '876764764', joinedOn: new Date('13-Nov-2010'), salary: 55000 },
     ];
+
   }
 
   addDoctor() {
@@ -34,6 +37,10 @@ export class DoctorsComponent implements OnInit, DoCheck {
   }
   ngDoCheck(): void {
     console.log('DO check is called');
+  }
+
+  ngAfterViewInit(): void {
+    this.headerComponent.header = "Selected Doctor";
   }
 
   receiveDoctor(doctor: IDoctors) {
