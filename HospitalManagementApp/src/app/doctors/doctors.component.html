@@ -11,4 +11,7 @@
 </div>
 <app-header></app-header>
 <app-header></app-header>
-<app-doctors-list [doctorsList]="docList" (selectedDoctor)="receiveDoctor($event)"></app-doctors-list>
+<app-content>
+  <app-doctors-list [doctorsList]="docList" [title]="'Doctors List'" (selectedDoctor)="receiveDoctor($event)">
+  </app-doctors-list>
+</app-content>

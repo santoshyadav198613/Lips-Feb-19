@@ -11,8 +11,10 @@ import { IDoctors } from '../doctors';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DoctorsListComponent implements OnInit, OnChanges {
+  @Input() title: string = '';
   @Input() doctorsList: Array<IDoctors> = [];
   @Output() selectedDoctor = new EventEmitter<IDoctors>();
+  
   constructor() { }
 
   ngOnInit() {
@@ -20,6 +22,10 @@ export class DoctorsListComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
+  }
+
+  changeTitle() {
+    this.title = 'New Title';
   }
 
   sendSelectedDoctor(doctor: IDoctors): void {
