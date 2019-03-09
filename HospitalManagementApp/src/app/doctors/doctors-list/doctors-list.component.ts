@@ -14,13 +14,19 @@ export class DoctorsListComponent implements OnInit, OnChanges {
   @Input() title: string = '';
   @Input() doctorsList: Array<IDoctors> = [];
   @Output() selectedDoctor = new EventEmitter<IDoctors>();
-  
+
   constructor() { }
 
   ngOnInit() {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
+    for (let prop in changes) {
+      console.log(prop);
+      if (prop === 'title') {
+
+      }
+    }
     console.log(changes);
   }
 
