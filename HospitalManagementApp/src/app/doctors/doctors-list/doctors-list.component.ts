@@ -2,7 +2,7 @@ import {
   Component, ChangeDetectionStrategy, OnInit, Input, SimpleChanges,
   Output, OnChanges, EventEmitter
 } from '@angular/core';
-import { IDoctors } from '../doctors';
+import { IDoctors } from '../service/doctors';
 
 @Component({
   selector: 'app-doctors-list',
