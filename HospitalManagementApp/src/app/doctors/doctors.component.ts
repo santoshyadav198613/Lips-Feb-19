@@ -1,11 +1,12 @@
 import {
-  Component, OnInit, DoCheck, ViewChild,
+  Component, OnInit, DoCheck, Self, ViewChild,
   AfterViewInit, ViewChildren, QueryList
 } from '@angular/core';
 
 import { DoctorService } from "./service/doctor.service";
 import { HeaderComponent } from '../header/header.component';
 import { IDoctors } from './service/doctors';
+
 @Component({
   selector: 'app-doctors',
   templateUrl: './doctors.component.html',
@@ -19,7 +20,7 @@ export class DoctorsComponent implements OnInit, DoCheck, AfterViewInit {
   selectedDoctor: IDoctors;
   docList: Array<IDoctors> = [];
 
-  constructor(private docService: DoctorService) { }
+  constructor(@Self() private docService: DoctorService) { }
 
   ngOnInit() {
     this.docList = this.docService.getDoctorList();

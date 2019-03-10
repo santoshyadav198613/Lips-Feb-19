@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, SkipSelf } from '@angular/core';
 import { IPatient } from "./patient/patient";
 import { DoctorService } from './doctors/service/doctor.service';
 
@@ -22,7 +22,7 @@ export class AppComponent {
     { name: 'Test5', age: 23, number: '5675675', address: 'Pune', symptoms: 'cough' }
   ];
 
-  constructor(private docService: DoctorService) { }
+  constructor(@SkipSelf() private docService: DoctorService) { }
 
   addDoctor() {
     this.docService.addDoctor(
