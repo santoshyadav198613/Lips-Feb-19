@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { ObservableService } from '../Observables/observable.service';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css'],
-  encapsulation : ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None,
   host: { class: 'app-employee' }
 })
 export class EmployeeComponent implements OnInit {
@@ -12,8 +13,10 @@ export class EmployeeComponent implements OnInit {
   city = '';
   isHidden = false;
 
-  constructor() { }
+  constructor(private obsService: ObservableService) { }
   ngOnInit() {
+    this.obsService.getName().subscribe(
+      data => console.log(data));
   }
 
   getName(): string {
