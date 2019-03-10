@@ -22,10 +22,9 @@ export class DoctorService {
 
   }
 
-  addDoctor() {
+  addDoctor(doctor: IDoctors) {
     return this.docList = [...this.docList,
-    { name: 'Test1', speciality: 'Surgeon', degree: 'MBBS', contactNo: '876764764', joinedOn: new Date('13-Nov-2010'), salary: 55000 }
-    ];
+      doctor];
   }
 
 

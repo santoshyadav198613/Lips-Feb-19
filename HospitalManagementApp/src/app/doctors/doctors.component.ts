@@ -9,7 +9,8 @@ import { IDoctors } from './service/doctors';
 @Component({
   selector: 'app-doctors',
   templateUrl: './doctors.component.html',
-  styleUrls: ['./doctors.component.css']
+  styleUrls: ['./doctors.component.css'],
+  providers: [DoctorService]
 })
 export class DoctorsComponent implements OnInit, DoCheck, AfterViewInit {
 
@@ -25,7 +26,9 @@ export class DoctorsComponent implements OnInit, DoCheck, AfterViewInit {
   }
 
   addDoctor() {
-    this.docList = this.docService.addDoctor();
+    this.docList = this.docService.addDoctor(
+      { name: 'Test1', speciality: 'Surgeon', degree: 'MBBS', contactNo: '876764764', joinedOn: new Date('13-Nov-2010'), salary: 55000 }
+    );
 
     // will modify the object will not work with CD onPush
     // this.docList.push({ name: 'Test1', speciality: 'Surgeon', degree: 'MBBS', contactNo: '876764764', joinedOn: new Date('13-Nov-2010'), salary: 55000 });
