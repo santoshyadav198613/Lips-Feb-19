@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component';
@@ -12,6 +13,8 @@ import { ContentComponent } from './content/content.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmpListComponent } from './employee/emp-list/emp-list.component';
 import { PatientComponent } from './patient/patient.component';
+import { TodosComponent } from './todos/todos.component';
+import { TodoInfoComponent } from './todos/todo-info/todo-info.component';
 
 @NgModule({
   declarations: [
@@ -25,10 +28,13 @@ import { PatientComponent } from './patient/patient.component';
     ContentComponent,
     DashboardComponent,
     EmpListComponent,
-    PatientComponent
+    PatientComponent,
+    TodosComponent,
+    TodoInfoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
