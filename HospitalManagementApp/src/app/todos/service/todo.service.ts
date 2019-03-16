@@ -16,6 +16,7 @@ export class TodoService {
   }
 
   addTodo(todo: ITodo) {
-    return this.http.post<ITodo>('https://jsonplaceholder.typicode.com/todos', todo);
+    return this.http.post<ITodo>('https://jsonplaceholder.typicode.com/todos',
+      todo);
   }
 }
