@@ -1,0 +1,19 @@
+<h1>
+  Add Task
+</h1>
+
+{{todo | json}}
+<form (submit)="addTask()" novalidate>
+  <div class="form-group">
+    <input class="form-control" type="number" name="userid" [(ngModel)]="todo.userId" placeholder="User ID">
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="text"  name="title" [(ngModel)]="todo.title" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <input class="form-control" type="checkbox" name="completed" [(ngModel)]="todo.completed">
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Add Task</button>
+  </div>
+</form>

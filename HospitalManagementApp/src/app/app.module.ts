@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FormsModule } from '@angular/forms';
+
 import { AppComponent } from './app.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { HospitalInfoComponent } from './hospital-info/hospital-info.component';
@@ -15,6 +17,7 @@ import { EmpListComponent } from './employee/emp-list/emp-list.component';
 import { PatientComponent } from './patient/patient.component';
 import { TodosComponent } from './todos/todos.component';
 import { TodoInfoComponent } from './todos/todo-info/todo-info.component';
+import { TodoAddComponent } from './todos/todo-add/todo-add.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +33,13 @@ import { TodoInfoComponent } from './todos/todo-info/todo-info.component';
     EmpListComponent,
     PatientComponent,
     TodosComponent,
-    TodoInfoComponent
+    TodoInfoComponent,
+    TodoAddComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

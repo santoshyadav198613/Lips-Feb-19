@@ -17,4 +17,11 @@ export class TodosComponent implements OnInit {
     this.todoService.getTodoList().subscribe((data) => this.list = data);
   }
 
+  addTodo(todo: ITodo) {
+    this.todoService.addTodo(todo).subscribe((data) => {
+      console.log('Task added')
+      console.log(data)
+    }, (err) => console.log(err))
+  }
+
 }
