@@ -10,10 +10,20 @@ import { ITodo } from './service/todo';
 export class TodosComponent implements OnInit {
 
   list: ITodo[] = [];
+  task: ITodo = {
+    id: 0,
+    userId: 0,
+    title: '',
+    completed: false
+  };
 
   constructor(private todoService: TodoService) { }
 
   ngOnInit() {
+    this.loadTask();
+  }
+
+  loadTask() {
     this.todoService.getTodoList().subscribe((data) => this.list = data);
   }
 
@@ -21,7 +31,22 @@ export class TodosComponent implements OnInit {
     this.todoService.addTodo(todo).subscribe((data) => {
       console.log('Task added')
       console.log(data)
+      this.loadTask();
     }, (err) => console.log(err))
+  }
+
+  currentTask(task: ITodo) {
+    this.task = task;
+  }
+
+  updateTask(task: ITodo) {
+    this.todoService.updateTodo(task).subscribe((data) => this.loadTask(),
+      (err) => console.log(err));
+  }
+
+  deleteTask(task: ITodo) {
+    this.todoService.deleteTodo(task).subscribe((data) => this.loadTask(),
+      (err) => console.log(err));
   }
 
 }

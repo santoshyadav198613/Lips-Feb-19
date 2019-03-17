@@ -19,4 +19,13 @@ export class TodoService {
     return this.http.post<ITodo>('https://jsonplaceholder.typicode.com/todos',
       todo);
   }
+
+  updateTodo(todo: ITodo) {
+    return this.http.put<ITodo>('https://jsonplaceholder.typicode.com/todos/' + todo.id,
+      todo)
+  }
+
+  deleteTodo(todo: ITodo) {
+    return this.http.delete<ITodo>('https://jsonplaceholder.typicode.com/todos/' + todo.id)
+  }
 }
