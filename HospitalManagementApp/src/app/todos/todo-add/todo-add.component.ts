@@ -8,6 +8,7 @@ import { ITodo } from '../service/todo';
 })
 export class TodoAddComponent implements OnInit {
 
+  pattern = "^[a-zA-Z0-9]+$";
   @Output() addTodo: EventEmitter<ITodo> = new EventEmitter<ITodo>();
   todo: ITodo = {
     id: 0,
@@ -16,9 +17,12 @@ export class TodoAddComponent implements OnInit {
     completed: false
   };
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
+
   }
 
   addTask() {
