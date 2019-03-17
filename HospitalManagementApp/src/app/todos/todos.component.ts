@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TodoService } from './service/todo.service';
 import { ITodo } from './service/todo';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.css']
 })
-export class TodosComponent implements OnInit {
+export class TodosComponent implements OnInit, OnDestroy {
 
+  listSubscription: Subscription;
   list: ITodo[] = [];
   task: ITodo = {
     id: 0,
@@ -24,7 +26,7 @@ export class TodosComponent implements OnInit {
   }
 
   loadTask() {
-    this.todoService.getTodoList().subscribe((data) => this.list = data);
+    this.listSubscription = this.todoService.getTodoList().subscribe((data) => this.list = data);
   }
 
   addTodo(todo: ITodo) {
@@ -47,6 +49,16 @@ export class TodosComponent implements OnInit {
   deleteTask(task: ITodo) {
     this.todoService.deleteTodo(task).subscribe((data) => this.loadTask(),
       (err) => console.log(err));
+  }
+
+  ngOnDestroy() {
+    this.listSubscription
+      ? this.listSubscription.unsubscribe()
+      : this.noop();
+  }
+
+  noop() {
+
   }
 
 }
