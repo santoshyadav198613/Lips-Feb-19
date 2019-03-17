@@ -11,8 +11,8 @@
 {{todoForm.errors | json }}
 <form #todoForm="ngForm" (submit)="addTask()" novalidate>
   <div class="form-group">
-    <input #userid="ngModel" min="1" max="10" required class="form-control" type="number" name="userid" [(ngModel)]="todo.userId"
-      placeholder="User ID">
+    <input #userid="ngModel" min="1" max="10" required class="form-control" type="number" name="userid"
+      [(ngModel)]="todo.userId" placeholder="User ID">
     {{userid.valid | json }}
     {{userid.invalid | json }}
     {{userid.pristine | json }}
@@ -24,9 +24,18 @@
     </div>
   </div>
   <div class="form-group">
-    <input #title="ngModel" [pattern]="pattern" required minlength="4" maxlength="8" class="form-control" type="text" name="title" [(ngModel)]="todo.title"
-      placeholder="Title">
-      {{title.errors | json}}
+    <input #title="ngModel" [pattern]="pattern" required minlength="4" maxlength="8" class="form-control" type="text"
+      name="title" [(ngModel)]="todo.title" placeholder="Title">
+    {{title.errors | json}}
+    <div class="alert alert-danger" *ngIf="title?.errors?.required">
+      Please provide Title.
+    </div>
+    <div class="alert alert-danger" *ngIf="title?.errors?.minlength">
+      Title should be minimum 4 chars.
+    </div>
+    <div class="alert alert-danger" *ngIf="title?.errors?.pattern">
+      Title should be alphanumeric.
+    </div>
   </div>
   <div class="form-group">
     <input class="form-control" type="checkbox" name="completed" [(ngModel)]="todo.completed">
