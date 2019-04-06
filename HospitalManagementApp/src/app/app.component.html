@@ -1,38 +1,7 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-  <h1>
+  <h4>
     Welcome to {{ title }}!
-  </h1>
-  <!-- <app-doctors></app-doctors> -->
-  <!-- <div [ngSwitch]="role">
-    <div *ngSwitchCase="'Employee'">
-      <app-employee></app-employee>
-    </div>
-   <div *ngSwitchCase="'Admin'">
-      <app-hospital-info></app-hospital-info>
-    </div>
-    <div *ngSwitchDefault>
-      You are not assigned to any role.
-    </div>
-  </div> -->
-  <!-- <app-employee></app-employee>
-  <app-hospital-info></app-hospital-info> -->
-  <app-todos></app-todos>
-  <button class="btn btn-primary" (click)="addDoctor()">
-    Add Doctor
-  </button>
-
-  <button class="btn btn-primary" (click)="addName()">
-    Add Name
-  </button>
-
-  <app-dashboard>
-    <app-doctors></app-doctors>
-    <app-hospital-info></app-hospital-info>
-    <app-employee></app-employee>
-  </app-dashboard>
-  <!-- <ng-container *ngFor="let patient of patientList">
-    <app-patient [patient]="patient" [desease]="'fever'"></app-patient>
-  </ng-container> -->
-
+  </h4>
+  <a routerLink="employee">Employee</a>
+  <router-outlet></router-outlet>
 </div>
