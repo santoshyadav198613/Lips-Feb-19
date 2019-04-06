@@ -8,7 +8,7 @@ import { ITodo } from '../service/todo';
 })
 export class TodoAddComponent implements OnInit {
 
-  pattern = "^[a-zA-Z0-9]+$";
+  pattern = '^[a-zA-Z0-9]+$';
   @Output() addTodo: EventEmitter<ITodo> = new EventEmitter<ITodo>();
   @Output() updateTodo: EventEmitter<ITodo> = new EventEmitter<ITodo>();
 

@@ -22,10 +22,10 @@ export class TodoService {
 
   updateTodo(todo: ITodo) {
     return this.http.put<ITodo>('https://jsonplaceholder.typicode.com/todos/' + todo.id,
-      todo)
+      todo);
   }
 
   deleteTodo(todo: ITodo) {
-    return this.http.delete<ITodo>('https://jsonplaceholder.typicode.com/todos/' + todo.id)
+    return this.http.delete<ITodo>('https://jsonplaceholder.typicode.com/todos/' + todo.id);
   }
 }

@@ -31,10 +31,10 @@ export class TodosComponent implements OnInit, OnDestroy {
 
   addTodo(todo: ITodo) {
     this.todoService.addTodo(todo).subscribe((data) => {
-      console.log('Task added')
-      console.log(data)
+      console.log('Task added');
+      console.log(data);
       this.loadTask();
-    }, (err) => console.log(err))
+    }, (err) => console.log(err));
   }
 
   currentTask(task: ITodo) {

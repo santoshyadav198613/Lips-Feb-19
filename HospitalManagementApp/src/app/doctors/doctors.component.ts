@@ -3,7 +3,7 @@ import {
   AfterViewInit, ViewChildren, QueryList
 } from '@angular/core';
 
-import { DoctorService } from "./service/doctor.service";
+import { DoctorService } from './service/doctor.service';
 import { HeaderComponent } from '../header/header.component';
 import { IDoctors } from './service/doctors';
 
@@ -40,11 +40,11 @@ export class DoctorsComponent implements OnInit, DoCheck, AfterViewInit {
 
   ngAfterViewInit(): void {
     console.log(this.headerChildren);
-    setTimeout(() => this.headerComponent.header = "Selected Doctor", 0);
+    setTimeout(() => this.headerComponent.header = 'Selected Doctor', 0);
 
     this.headerChildren.forEach((headerComp, i) => {
       console.log(i);
-      setTimeout(() => headerComp.header = "Selected Doctor from children", 0);
+      setTimeout(() => headerComp.header = 'Selected Doctor from children', 0);
     });
 
   }

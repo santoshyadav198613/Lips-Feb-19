@@ -11,7 +11,7 @@ import { IDoctors } from '../service/doctors';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DoctorsListComponent implements OnInit, OnChanges {
-  @Input() title: string = '';
+  @Input() title = '';
   @Input() doctorsList: Array<IDoctors> = [];
   @Output() selectedDoctor = new EventEmitter<IDoctors>();
 
@@ -21,7 +21,7 @@ export class DoctorsListComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    for (let prop in changes) {
+    for (const prop in changes) {
       console.log(prop);
       if (prop === 'title') {
 

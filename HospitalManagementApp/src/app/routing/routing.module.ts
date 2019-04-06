@@ -17,7 +17,7 @@ import { PatientComponent } from '../patient/patient.component';
       { path: 'doctor', component: DoctorsComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'patient', component: PatientComponent }
-    ]),
+    ])
   ],
   exports: [RouterModule]
 })
