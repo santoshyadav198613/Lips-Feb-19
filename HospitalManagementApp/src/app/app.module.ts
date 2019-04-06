@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -18,6 +17,11 @@ import { PatientComponent } from './patient/patient.component';
 import { TodosComponent } from './todos/todos.component';
 import { TodoInfoComponent } from './todos/todo-info/todo-info.component';
 import { TodoAddComponent } from './todos/todo-add/todo-add.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RoutingModule } from './routing/routing.module';
 
 @NgModule({
   declarations: [
@@ -34,19 +38,21 @@ import { TodoAddComponent } from './todos/todo-add/todo-add.component';
     PatientComponent,
     TodosComponent,
     TodoInfoComponent,
-    TodoAddComponent
+    TodoAddComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: 'todo', component: TodosComponent },
-      { path: 'employee', component: EmployeeComponent },
-      { path: 'doctor', component: DoctorsComponent },
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'patient', component: PatientComponent }
-    ])
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    BrowserAnimationsModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
