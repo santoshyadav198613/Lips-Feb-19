@@ -14,14 +14,13 @@ import { ContentComponent } from './content/content.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EmpListComponent } from './employee/emp-list/emp-list.component';
 import { PatientComponent } from './patient/patient.component';
-import { TodosComponent } from './todos/todos.component';
-import { TodoInfoComponent } from './todos/todo-info/todo-info.component';
-import { TodoAddComponent } from './todos/todo-add/todo-add.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RoutingModule } from './routing/routing.module';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { TodosModule } from './todos/todos.module';
 
 @NgModule({
   declarations: [
@@ -36,10 +35,8 @@ import { RoutingModule } from './routing/routing.module';
     DashboardComponent,
     EmpListComponent,
     PatientComponent,
-    TodosComponent,
-    TodoInfoComponent,
-    TodoAddComponent,
-    MainNavComponent
+    MainNavComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +49,8 @@ import { RoutingModule } from './routing/routing.module';
     MatIconModule,
     MatListModule,
     BrowserAnimationsModule,
-    RoutingModule
+    RoutingModule,
+    TodosModule
   ],
   providers: [],
   bootstrap: [AppComponent]

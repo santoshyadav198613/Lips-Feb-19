@@ -6,6 +6,7 @@ import { EmployeeComponent } from '../employee/employee.component';
 import { DoctorsComponent } from '../doctors/doctors.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { PatientComponent } from '../patient/patient.component';
+import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [],
@@ -16,7 +17,8 @@ import { PatientComponent } from '../patient/patient.component';
       { path: 'employee', component: EmployeeComponent },
       { path: 'doctor', component: DoctorsComponent },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'patient', component: PatientComponent }
+      { path: '', redirectTo: 'todo', pathMatch: 'full' },
+      { path: '**', component: PagenotfoundComponent }
     ])
   ],
   exports: [RouterModule]
