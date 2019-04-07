@@ -11,6 +11,7 @@
       <th>Completed</th>
       <th>Edit</th>
       <th>Delete</th>
+      <th>Details</th>
     </tr>
   </thead>
 
@@ -24,9 +25,12 @@
       <td>{{todo.completed}}</td>
       <td>
         <button class="btn btn-primary" (click)="editTask(todo)">Edit</button>
-      </td> 
+      </td>
       <td>
         <button class="btn btn-danger" (click)="deleteTask(todo)">Delete</button>
+      </td>
+      <td>
+        <button class="btn btn-danger" [routerLink]="['/todo', todo.id]">Details</button>
       </td>
     </tr>
   </tbody>

@@ -7,6 +7,7 @@ import { DoctorsComponent } from '../doctors/doctors.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { PatientComponent } from '../patient/patient.component';
 import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
+import { TodoDetailsComponent } from '../todos/todo-details/todo-details.component';
 
 @NgModule({
   declarations: [],
@@ -14,6 +15,7 @@ import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
     CommonModule,
     RouterModule.forRoot([
       { path: 'todo', component: TodosComponent },
+      { path: 'todo/:id', component: TodoDetailsComponent },
       { path: 'employee', component: EmployeeComponent },
       { path: 'doctor', component: DoctorsComponent },
       { path: 'dashboard', component: DashboardComponent },
