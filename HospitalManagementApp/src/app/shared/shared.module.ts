@@ -4,7 +4,12 @@ import { HeaderComponent } from '../header/header.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
+import {
+  MatToolbarModule, MatButtonModule, MatSidenavModule,
+  MatIconModule, MatListModule,
+  MatFormFieldModule,
+  MatInputModule,
+} from '@angular/material';
 import { ContentComponent } from '../content/content.component';
 
 @NgModule({
@@ -19,6 +24,8 @@ import { ContentComponent } from '../content/content.component';
     HttpClientModule,
     LayoutModule,
     MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
@@ -35,6 +42,8 @@ import { ContentComponent } from '../content/content.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatFormFieldModule,
+    MatInputModule,
     HeaderComponent,
     ContentComponent
   ]

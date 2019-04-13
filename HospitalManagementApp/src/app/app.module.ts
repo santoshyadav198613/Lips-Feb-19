@@ -16,6 +16,7 @@ import { RoutingModule } from './routing/routing.module';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { TodosModule } from './todos/todos.module';
 import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SharedModule } from './shared/shared.module';
     EmpListComponent,
     PatientComponent,
     MainNavComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

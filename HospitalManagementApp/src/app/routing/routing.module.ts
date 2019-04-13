@@ -8,18 +8,20 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 import { PatientComponent } from '../patient/patient.component';
 import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
 import { TodoDetailsComponent } from '../todos/todo-details/todo-details.component';
+import { LoginComponent } from '../login/login.component';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     RouterModule.forRoot([
+      { path: 'login', component: LoginComponent },
       { path: 'todo', component: TodosComponent },
       { path: 'todo/:id', component: TodoDetailsComponent },
       { path: 'employee', component: EmployeeComponent },
       { path: 'doctor', component: DoctorsComponent },
       { path: 'dashboard', component: DashboardComponent },
-      { path: '', redirectTo: 'todo', pathMatch: 'full' },
+      { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: '**', component: PagenotfoundComponent }
     ])
   ],
