@@ -1,6 +1,6 @@
 <h1>
   ToDo
 </h1>
-
+<router-outlet></router-outlet>
 <app-todo-add [todo]="task" (addTodo)="addTodo($event)" (updateTodo)="updateTask($event)"></app-todo-add>
 <app-todo-info [todoList]="list" (selectedTask)="currentTask($event)" (removeTask)="deleteTask($event)"></app-todo-info>

@@ -37,8 +37,8 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     SharedModule,
     BrowserAnimationsModule,
-    RoutingModule,
-    TodosModule
+    TodosModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

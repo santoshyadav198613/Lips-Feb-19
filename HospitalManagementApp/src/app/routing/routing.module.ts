@@ -16,8 +16,6 @@ import { LoginComponent } from '../login/login.component';
     CommonModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
-      { path: 'todo', component: TodosComponent },
-      { path: 'todo/:id', component: TodoDetailsComponent },
       { path: 'employee', component: EmployeeComponent },
       { path: 'doctor', component: DoctorsComponent },
       { path: 'dashboard', component: DashboardComponent },
