@@ -16,6 +16,7 @@ import { LoginComponent } from '../login/login.component';
     CommonModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
+      { path: 'todo', loadChildren : '../todos/todos.module#TodosModule' },
       { path: 'employee', component: EmployeeComponent },
       { path: 'doctor', component: DoctorsComponent },
       { path: 'dashboard', component: DashboardComponent },

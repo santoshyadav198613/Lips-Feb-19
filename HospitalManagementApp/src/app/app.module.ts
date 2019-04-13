@@ -14,7 +14,6 @@ import { MainNavComponent } from './main-nav/main-nav.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RoutingModule } from './routing/routing.module';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { TodosModule } from './todos/todos.module';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 
@@ -37,7 +36,6 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     SharedModule,
     BrowserAnimationsModule,
-    TodosModule,
     RoutingModule
   ],
   providers: [],
