@@ -21,15 +21,7 @@ import { ContentComponent } from '../content/content.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
+    HttpClientModule
   ],
   exports: [
     CommonModule,
