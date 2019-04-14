@@ -6,7 +6,7 @@ import { AuthGuard } from '../guard/auth.guard';
 
 const routes: Routes = [
   {
-    path: '', component: TodosComponent, canActivate : [AuthGuard] , children: [
+    path: '', component: TodosComponent, canActivate : [AuthGuard] , canActivateChild : [AuthGuard] , children: [
       { path: ':id', component: TodoDetailsComponent }
     ]
   }
