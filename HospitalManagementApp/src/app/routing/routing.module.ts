@@ -9,6 +9,7 @@ import { PatientComponent } from '../patient/patient.component';
 import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
 import { TodoDetailsComponent } from '../todos/todo-details/todo-details.component';
 import { LoginComponent } from '../login/login.component';
+import { AuthGuard } from '../guard/auth.guard';
 
 @NgModule({
   declarations: [],
@@ -16,10 +17,10 @@ import { LoginComponent } from '../login/login.component';
     CommonModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
-      { path: 'todo', loadChildren : '../todos/todos.module#TodosModule' },
-      { path: 'employee', component: EmployeeComponent },
-      { path: 'doctor', component: DoctorsComponent },
-      { path: 'dashboard', component: DashboardComponent },
+      { path: 'todo', loadChildren: '../todos/todos.module#TodosModule', canLoad: [AuthGuard] },
+      { path: 'employee', component: EmployeeComponent, canActivate: [AuthGuard] },
+      { path: 'doctor', component: DoctorsComponent, canActivate: [AuthGuard] },
+      { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: '**', component: PagenotfoundComponent }
     ])
