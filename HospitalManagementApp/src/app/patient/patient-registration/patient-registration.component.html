@@ -31,6 +31,24 @@
       <input matInput placeholder="Pin Code" formControlName="pin">
     </mat-form-field>
   </div>
+  <div formArrayName="previousHistory">
+    <div *ngFor="let history of registrationForm['controls'].previousHistory['controls']; let i=index">
+      <div [formGroupName]="i">
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Hospitalized At" formControlName="hospitalizedAt">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="From Date" formControlName="fromDate">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="To Date" formControlName="toDate">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Symptoms" formControlName="desease">
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
   <div>
     <button [disabled]="registrationForm.invalid" type="submit" mat-raised-button color="primary">Register</button>
   </div>

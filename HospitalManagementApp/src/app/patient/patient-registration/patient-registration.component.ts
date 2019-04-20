@@ -22,7 +22,15 @@ export class PatientRegistrationComponent implements OnInit {
         addressLine2: new FormControl(''),
         city: new FormControl(''),
         pin: new FormControl('')
-      })
+      }),
+      previousHistory: this.fb.array([
+        this.fb.group({
+          hospitalizedAt: new FormControl(''),
+          fromDate: new FormControl(''),
+          toDate: new FormControl(''),
+          desease: new FormControl(''),
+        })
+      ])
     })
   }
 
