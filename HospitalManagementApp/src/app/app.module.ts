@@ -16,6 +16,7 @@ import { RoutingModule } from './routing/routing.module';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
+import { PatientRegistrationComponent } from './patient/patient-registration/patient-registration.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LoginComponent } from './login/login.component';
     PatientComponent,
     MainNavComponent,
     PagenotfoundComponent,
-    LoginComponent
+    LoginComponent,
+    PatientRegistrationComponent
   ],
   imports: [
     BrowserModule,
