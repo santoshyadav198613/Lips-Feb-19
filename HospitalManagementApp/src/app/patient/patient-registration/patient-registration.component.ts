@@ -3,7 +3,7 @@ import {
   FormGroup, FormBuilder,
   FormControl, FormArray, Validators
 } from '@angular/forms';
-import { CustomValidator } from 'src/app/customValidator/custom.validator.service';
+import { CustomValidator } from '../../customValidator/custom.validator.service';
 
 
 
@@ -35,7 +35,7 @@ export class PatientRegistrationComponent implements OnInit {
       previousHistory: this.fb.array([
         this.builForm()
       ])
-    },{ updateOn: 'blur' })
+    },{ validators: [CustomValidator.validateDateRange] , updateOn: 'blur' })
   }
 
   private builForm(): any {
