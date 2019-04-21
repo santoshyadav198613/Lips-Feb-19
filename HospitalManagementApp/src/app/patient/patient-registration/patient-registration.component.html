@@ -31,6 +31,8 @@
       <input matInput placeholder="Pin Code" formControlName="pin">
     </mat-form-field>
   </div>
+    <button type="button" mat-raised-button color="primary" 
+    (click)="addHistory()" >Add History</button>
   <div formArrayName="previousHistory">
     <div *ngFor="let history of registrationForm['controls'].previousHistory['controls']; let i=index">
       <div [formGroupName]="i">

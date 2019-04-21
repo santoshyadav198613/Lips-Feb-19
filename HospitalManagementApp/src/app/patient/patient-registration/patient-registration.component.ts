@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-patient-registration',
@@ -24,14 +24,22 @@ export class PatientRegistrationComponent implements OnInit {
         pin: new FormControl('')
       }),
       previousHistory: this.fb.array([
-        this.fb.group({
-          hospitalizedAt: new FormControl(''),
-          fromDate: new FormControl(''),
-          toDate: new FormControl(''),
-          desease: new FormControl(''),
-        })
+        this.builForm()
       ])
     })
   }
 
+  private builForm(): any {
+    return this.fb.group({
+      hospitalizedAt: new FormControl(''),
+      fromDate: new FormControl(''),
+      toDate: new FormControl(''),
+      desease: new FormControl(''),
+    });
+  }
+
+  addHistory() {
+    const historyControl = this.registrationForm['controls'].previousHistory as FormArray;
+    historyControl.push(this.builForm());
+  }
 }
