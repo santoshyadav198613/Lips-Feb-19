@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, FormArray } from '@angular/forms';
+import {
+  FormGroup, FormBuilder,
+  FormControl, FormArray, Validators
+} from '@angular/forms';
 
 @Component({
   selector: 'app-patient-registration',
@@ -13,15 +16,18 @@ export class PatientRegistrationComponent implements OnInit {
 
   ngOnInit() {
     this.registrationForm = this.fb.group({
-      name: new FormControl(''),
-      age: new FormControl(''),
-      email: new FormControl(''),
-      mobile: new FormControl(''),
+      name: new FormControl('', {
+        validators: [Validators.required, Validators.maxLength(20)],
+        updateOn: 'blur'
+      }),
+      age: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      mobile: new FormControl('', [Validators.required]),
       address: this.fb.group({
-        addressLine1: new FormControl(''),
-        addressLine2: new FormControl(''),
-        city: new FormControl(''),
-        pin: new FormControl('')
+        addressLine1: new FormControl('', [Validators.required]),
+        addressLine2: new FormControl('', [Validators.required]),
+        city: new FormControl('', [Validators.required]),
+        pin: new FormControl('', [Validators.required])
       }),
       previousHistory: this.fb.array([
         this.builForm()
@@ -31,10 +37,10 @@ export class PatientRegistrationComponent implements OnInit {
 
   private builForm(): any {
     return this.fb.group({
-      hospitalizedAt: new FormControl(''),
-      fromDate: new FormControl(''),
+      hospitalizedAt: new FormControl('', [Validators.required]),
+      fromDate: new FormControl('', [Validators.required]),
       toDate: new FormControl(''),
-      desease: new FormControl(''),
+      desease: new FormControl('', [Validators.required]),
     });
   }
 
@@ -47,4 +53,6 @@ export class PatientRegistrationComponent implements OnInit {
     const historyControl = this.registrationForm['controls'].previousHistory as FormArray;
     historyControl.removeAt(i);
   }
+
+
 }
