@@ -3,6 +3,9 @@ import {
   FormGroup, FormBuilder,
   FormControl, FormArray, Validators
 } from '@angular/forms';
+import { CustomValidator } from 'src/app/customValidator/custom.validator.service';
+
+
 
 @Component({
   selector: 'app-patient-registration',
@@ -22,7 +25,7 @@ export class PatientRegistrationComponent implements OnInit {
       }),
       age: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      mobile: new FormControl('', [Validators.required]),
+      mobile: new FormControl('', [Validators.required, CustomValidator.mobileNoValidator]),
       address: this.fb.group({
         addressLine1: new FormControl('', [Validators.required]),
         addressLine2: new FormControl('', [Validators.required]),
@@ -32,7 +35,7 @@ export class PatientRegistrationComponent implements OnInit {
       previousHistory: this.fb.array([
         this.builForm()
       ])
-    })
+    },{ updateOn: 'blur' })
   }
 
   private builForm(): any {
