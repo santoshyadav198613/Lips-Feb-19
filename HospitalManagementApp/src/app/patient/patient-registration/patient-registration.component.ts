@@ -35,7 +35,12 @@ export class PatientRegistrationComponent implements OnInit {
       previousHistory: this.fb.array([
         this.builForm()
       ])
-    },{ validators: [CustomValidator.validateDateRange] , updateOn: 'blur' })
+    },{ validators: [CustomValidator.validateDateRange] , updateOn: 'blur' });
+
+    // subscribe to from changes
+    this.registrationForm.valueChanges.subscribe((data)=> {
+      console.log(data);
+    });
   }
 
   private builForm(): any {
