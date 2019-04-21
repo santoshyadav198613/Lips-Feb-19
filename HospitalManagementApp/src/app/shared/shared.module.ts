@@ -7,8 +7,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import {
   MatToolbarModule, MatButtonModule, MatSidenavModule,
   MatIconModule, MatListModule,
-  MatFormFieldModule,
-  MatInputModule,
+  MatFormFieldModule, MatDatepickerModule, MatNativeDateModule,
+  MatInputModule
 } from '@angular/material';
 import { ContentComponent } from '../content/content.component';
 
@@ -37,7 +37,9 @@ import { ContentComponent } from '../content/content.component';
     MatFormFieldModule,
     MatInputModule,
     HeaderComponent,
-    ContentComponent
+    ContentComponent,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class SharedModule { }

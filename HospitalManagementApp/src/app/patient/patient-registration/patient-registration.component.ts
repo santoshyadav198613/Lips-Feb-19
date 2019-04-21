@@ -42,4 +42,9 @@ export class PatientRegistrationComponent implements OnInit {
     const historyControl = this.registrationForm['controls'].previousHistory as FormArray;
     historyControl.push(this.builForm());
   }
+
+  removeHistory(i: number) {
+    const historyControl = this.registrationForm['controls'].previousHistory as FormArray;
+    historyControl.removeAt(i);
+  }
 }
