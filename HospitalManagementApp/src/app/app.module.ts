@@ -17,6 +17,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { PatientRegistrationComponent } from './patient/patient-registration/patient-registration.component';
+import { ModePipe } from './hospital-info/mode.pipe';
+import { SearchPipe } from './hospital-info/search.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { PatientRegistrationComponent } from './patient/patient-registration/pat
     MainNavComponent,
     PagenotfoundComponent,
     LoginComponent,
-    PatientRegistrationComponent
+    PatientRegistrationComponent,
+    ModePipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

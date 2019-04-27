@@ -13,6 +13,8 @@ export class InsuranceProviderComponent implements OnInit {
     { name: 'UBI', cashLess: true, dailyLimit: 5000, coverage: .7, activeFrom: new Date('10-Jan-1980') },
     { name: 'Kotak', cashLess: true, dailyLimit: 8000, coverage: .8, activeFrom: new Date('10-Jan-1980') }
   ];
+
+  providerName ='';
   constructor() { }
 
   ngOnInit() {
