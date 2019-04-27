@@ -11,6 +11,7 @@ import { TodoDetailsComponent } from '../todos/todo-details/todo-details.compone
 import { LoginComponent } from '../login/login.component';
 import { AuthGuard } from '../guard/auth.guard';
 import { PatientRegistrationComponent } from '../patient/patient-registration/patient-registration.component';
+import { HospitalInfoComponent } from '../hospital-info/hospital-info.component';
 
 @NgModule({
   declarations: [],
@@ -20,6 +21,7 @@ import { PatientRegistrationComponent } from '../patient/patient-registration/pa
       { path: 'login', component: LoginComponent },
       { path: 'todo', loadChildren: '../todos/todos.module#TodosModule', canLoad: [AuthGuard] },
       { path: 'employee', component: EmployeeComponent, canActivate: [AuthGuard] },
+      { path: 'hospital', component: HospitalInfoComponent },
       { path: 'doctor', component: DoctorsComponent, canActivate: [AuthGuard] },
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
       { path: 'patient', component: PatientRegistrationComponent, canDeactivate: [AuthGuard] },
