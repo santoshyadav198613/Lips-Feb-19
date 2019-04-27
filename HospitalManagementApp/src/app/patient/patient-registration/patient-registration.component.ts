@@ -14,7 +14,7 @@ import { CustomValidator } from '../../customValidator/custom.validator.service'
 })
 export class PatientRegistrationComponent implements OnInit {
   registrationForm: FormGroup;
-
+  isChanged = false;
   constructor(private fb: FormBuilder) { }
 
   ngOnInit() {
@@ -33,17 +33,42 @@ export class PatientRegistrationComponent implements OnInit {
         pin: new FormControl('', [Validators.required])
       }),
       previousHistory: this.fb.array([
-        this.builForm()
+        this.buildForm()
       ])
-    },{ validators: [CustomValidator.validateDateRange] , updateOn: 'blur' });
+    }, { validators: [CustomValidator.validateDateRange], updateOn: 'blur' });
 
     // subscribe to from changes
-    this.registrationForm.valueChanges.subscribe((data)=> {
+    this.registrationForm.valueChanges.subscribe((data) => {
       console.log(data);
+      this.isChanged = true;
     });
+
+    this.bindData();
   }
 
-  private builForm(): any {
+  bindData() {
+    this.registrationForm.patchValue({
+      name: 'Test Patient1',
+      age: 10,
+      email: 'test1@gmail.com',
+      address: {
+        addressLine1: 'Pune',
+        addressLine2: 'Pune',
+        city: 'Pune',
+        pin: '400080'
+      },
+      previousHistory: [
+        {
+          hospitalizedAt: 'Test',
+          fromDate: '12-Dec-2012',
+          toDate: '15-Dec-2012',
+          desease: 'NA'
+        }
+      ]
+    })
+  }
+
+  private buildForm(): any {
     return this.fb.group({
       hospitalizedAt: new FormControl('', [Validators.required]),
       fromDate: new FormControl('', [Validators.required]),
@@ -54,12 +79,37 @@ export class PatientRegistrationComponent implements OnInit {
 
   addHistory() {
     const historyControl = this.registrationForm['controls'].previousHistory as FormArray;
-    historyControl.push(this.builForm());
+    historyControl.push(this.buildForm());
   }
 
   removeHistory(i: number) {
     const historyControl = this.registrationForm['controls'].previousHistory as FormArray;
     historyControl.removeAt(i);
+  }
+
+  saveData() {
+    console.log(this.registrationForm.getRawValue());
+    this.registrationForm.reset({
+      name: 'Test Patient1',
+      age: 10,
+      email: 'test1@gmail.com',
+      mobile: '',
+      address: {
+        addressLine1: 'Pune',
+        addressLine2: 'Pune',
+        city: 'Pune',
+        pin: '400080'
+      },
+      previousHistory: [
+        {
+          hospitalizedAt: 'Test',
+          fromDate: '12-Dec-2012',
+          toDate: '15-Dec-2012',
+          desease: 'NA'
+        }
+      ]
+    });
+    this.isChanged = false;
   }
 
 

@@ -1,12 +1,19 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router, CanActivateChild, CanLoad, Route, UrlSegment, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {
+  CanActivate, Router,
+  CanActivateChild, CanLoad,
+  Route, UrlSegment, ActivatedRouteSnapshot,
+  RouterStateSnapshot, UrlTree,
+  CanDeactivate
+} from '@angular/router';
 import { Observable } from 'rxjs';
 import { LoginService } from '../login/service/login.service';
+import { PatientRegistrationComponent } from '../patient/patient-registration/patient-registration.component';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
+export class AuthGuard implements CanActivate, CanActivateChild, CanLoad, CanDeactivate<PatientRegistrationComponent> {
 
   constructor(private loginService: LoginService,
     private router: Router) { }
@@ -35,5 +42,9 @@ export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
       this.router.navigate(['/login']);
       return false;
     }
+  }
+
+  canDeactivate(component: PatientRegistrationComponent, currentRoute: ActivatedRouteSnapshot, currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+    return component.isChanged ? false : true; 
   }
 }

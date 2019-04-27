@@ -2,13 +2,13 @@
 {{registrationForm.valid | json}}
 {{registrationForm.pristine | json}}
 {{registrationForm.dirty | json}}
-{{registrationForm.value | json}}
+
 
 <div *ngIf="registrationForm.errors?.inValidDate" class="alert alert-danger">
   From Date should be less than To Date
 </div>
 
-<form [formGroup]="registrationForm">
+<form [formGroup]="registrationForm" (submit)="saveData()">
   <mat-form-field class="full-width">
     <input matInput placeholder="Name" formControlName="name">
     <div>

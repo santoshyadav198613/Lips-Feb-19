@@ -22,7 +22,7 @@ import { PatientRegistrationComponent } from '../patient/patient-registration/pa
       { path: 'employee', component: EmployeeComponent, canActivate: [AuthGuard] },
       { path: 'doctor', component: DoctorsComponent, canActivate: [AuthGuard] },
       { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-      { path: 'patient', component: PatientRegistrationComponent },
+      { path: 'patient', component: PatientRegistrationComponent, canDeactivate: [AuthGuard] },
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: '**', component: PagenotfoundComponent }
     ])
