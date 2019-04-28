@@ -19,6 +19,12 @@ import { LoginComponent } from './login/login.component';
 import { PatientRegistrationComponent } from './patient/patient-registration/patient-registration.component';
 import { ModePipe } from './hospital-info/mode.pipe';
 import { SearchPipe } from './hospital-info/search.pipe';
+import { APP_CONFIG, IAppConfig } from 'core';
+import { environment } from '../environments/environment';
+
+const app_config: IAppConfig = {
+  apiEndPoint: environment.apiEndPoint
+};
 
 @NgModule({
   declarations: [
@@ -44,7 +50,9 @@ import { SearchPipe } from './hospital-info/search.pipe';
     BrowserAnimationsModule,
     RoutingModule
   ],
-  providers: [],
+  providers: [
+    { provide: APP_CONFIG, useValue: app_config }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

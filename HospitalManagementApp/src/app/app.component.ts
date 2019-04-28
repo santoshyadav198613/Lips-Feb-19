@@ -1,8 +1,9 @@
-import { Component, SkipSelf, OnInit } from '@angular/core';
+import { Component, SkipSelf, OnInit, Inject } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 import { IPatient } from './patient/patient';
 import { DoctorService } from './doctors/service/doctor.service';
 import { ObservableService } from './Observables/observable.service';
+import { APP_CONFIG, IAppConfig } from 'core';
 
 @Component({
   selector: 'app-root',
@@ -26,13 +27,15 @@ export class AppComponent implements OnInit {
 
   constructor(@SkipSelf() private docService: DoctorService,
     private obsService: ObservableService,
-    private router: Router) { }
+    private router: Router,
+    @Inject(APP_CONFIG) private appConfig: IAppConfig) {
+      console.log(appConfig);
+     }
 
 
   ngOnInit() {
     this.router.events.subscribe((eve) => {
-      if (eve => eve instanceof NavigationStart ) 
-      {
+      if (eve => eve instanceof NavigationStart) {
         console.log(eve);
       }
     });
