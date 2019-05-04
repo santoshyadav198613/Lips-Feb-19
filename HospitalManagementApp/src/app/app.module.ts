@@ -21,6 +21,8 @@ import { ModePipe } from './hospital-info/mode.pipe';
 import { SearchPipe } from './hospital-info/search.pipe';
 import { APP_CONFIG, IAppConfig } from 'core';
 import { environment } from '../environments/environment';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CustomInterceptorService } from './customInterceptor/custom.interceptor.service';
 
 const app_config: IAppConfig = {
   apiEndPoint: environment.apiEndPoint
@@ -51,7 +53,10 @@ const app_config: IAppConfig = {
     RoutingModule
   ],
   providers: [
-    { provide: APP_CONFIG, useValue: app_config }
+    { provide: APP_CONFIG, useValue: app_config },
+    { provide: HTTP_INTERCEPTORS, useClass:
+       CustomInterceptorService, 
+       multi: true  }
   ],
   bootstrap: [AppComponent]
 })
