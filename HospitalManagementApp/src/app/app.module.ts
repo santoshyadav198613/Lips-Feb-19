@@ -23,6 +23,7 @@ import { APP_CONFIG, IAppConfig } from 'core';
 import { environment } from '../environments/environment';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomInterceptorService } from './customInterceptor/custom.interceptor.service';
+import { HoverDirective } from './customDirective/hover.directive';
 
 const app_config: IAppConfig = {
   apiEndPoint: environment.apiEndPoint
@@ -44,7 +45,8 @@ const app_config: IAppConfig = {
     LoginComponent,
     PatientRegistrationComponent,
     ModePipe,
-    SearchPipe
+    SearchPipe,
+    HoverDirective
   ],
   imports: [
     BrowserModule,
