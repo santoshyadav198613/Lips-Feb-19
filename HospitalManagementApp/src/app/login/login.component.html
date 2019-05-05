@@ -1,10 +1,10 @@
 <form #loginForm="ngForm" (submit)="login()">
   <mat-form-field class="full-width">
-    <input appHover required matInput placeholder="User Name" name="username" [(ngModel)]="user.userName">
+    <input [appHover]="'red'" [mouseHoverColor]="'Green'" [mouseOutColor]="'red'" required matInput placeholder="User Name" name="username" [(ngModel)]="user.userName">
   </mat-form-field>
 
   <mat-form-field class="full-width">
-    <input appHover required matInput placeholder="password" type="password" name="password"
+    <input [appHover]="'green'" appCustomValidator [mouseHoverColor]="'Yellow'" [mouseOutColor]="'wheat'"  required matInput placeholder="password" type="password" name="password"
       [(ngModel)]="user.password">
   </mat-form-field>
   <div>
