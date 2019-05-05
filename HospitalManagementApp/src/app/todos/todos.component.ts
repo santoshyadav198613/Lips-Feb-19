@@ -36,10 +36,10 @@ export class TodosComponent implements OnInit, OnDestroy {
   }
 
   loadTask() {
-    this.route.data.subscribe((result) => {
-      this.list = result['todoList'];
-    });
-    // this.todoService.getTodoList().subscribe((data) => this.list = data);
+    // this.route.data.subscribe((result) => {
+    //   this.list = result['todoList'];
+    // });
+    this.todoService.getTodoList().subscribe((data) => this.list = data);
   }
 
   addTodo(todo: ITodo) {
