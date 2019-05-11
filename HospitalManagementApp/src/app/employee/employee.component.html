@@ -14,3 +14,18 @@
 <input class="form-control" [hidden]="isHidden" type="text" [value]="city" placeholder="City" >
 
 <button class="btn btn-primary" type="button" (click)="toggleInputs()">Toggle</button>
+
+<ng-container *ngTemplateOutlet="admin">
+
+</ng-container>
+
+<ng-container *ngTemplateOutlet="user">
+
+</ng-container>
+<ng-template #admin>
+  This is admin area
+</ng-template>
+
+<ng-template #user>
+  This is user area
+</ng-template>
